@@ -6,7 +6,7 @@
 #include <time.h>
 #include <sys/time.h>
 #include "baicaolib.h"
-
+//Function definition
 void printinfo(card *player1, card *comp) {
 		printf("----Player's card ----- \n");
 		printcard(player1);
@@ -78,11 +78,27 @@ void shuffle(card *deck) { // Pass by reference
 void pointcalc(card *player, card *comp){
 	int player_score, comp_score;
 	for (int i = 0; i < MAXPRINT;i ++) {
+		check10(comp, i);
+		check10(player, i);
 		player_score += player[i].rank;
 		comp_score += comp[i].rank; 
 	}
-	if (player_score > comp_score) {
+	player_score %= 10;
+	comp_score %= 10;
+	scorecompare(&comp_score, &player_score);
+}
+
+void check10(card *input, int i) {
+	if (input[i].rank > 9) 
+		input[i].rank = 0;
+}
+
+void scorecompare(int *comp_score, int *player_score) {
+	//Compare score
+	if (*player_score > *comp_score) {
 		printf("Player win\n");
+	} else if (*player_score == *comp_score) {
+		printf("Draw");
 	} else {
 		printf("Computer win\n");
 	}

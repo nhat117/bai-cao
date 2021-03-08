@@ -1,13 +1,14 @@
 // Create a game of bai cao
 // Main function of bai cao game
 // compile with syntax gcc -o baicao main.c baicaodef.c
+//Library declaration
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
 #include <sys/time.h>
 #include "baicaolib.h"
-
+//Main function
 int main() {
 		// Print out deck.
 		card deck[DECK_SIZE], player1[MAXPLAYERCARD], comp[MAXPLAYERCARD];
