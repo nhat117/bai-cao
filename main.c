@@ -1,5 +1,6 @@
 // Create a game of bai cao
 // Main function of bai cao game
+// compile with syntax gcc -o baicao main.c baicaodef.c
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
